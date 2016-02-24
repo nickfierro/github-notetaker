@@ -1,9 +1,9 @@
 var React = require('react');
+var SearchGithub = require('./SearchGithub');
 
 if (typeof window !== 'undefined') {
     window.React = React;
 };
-
 
 var Main = React.createClass({
   render: function(){
@@ -11,7 +11,7 @@ var Main = React.createClass({
       <div className="main-container">
         <nav className="navbar navbar-default" role="navigation">
           <div className="col-sm-7 col-sm-offset-2" stle={{marginTop:15}}>
-            MENU
+            <SearchGithub />
           </div>
         </nav>
         <div className="container">
