@@ -1,15 +1,15 @@
 var React = require('react');
 
 var AddNote = React.createClass({
-  // propTypes: {
-  //   username: React.PropTypes.string.isRequired,
-  //   addNote: React.PropTypes.func.isRequired
-  // },
+  propTypes: {
+    username: React.PropTypes.string.isRequired,
+    addNote: React.PropTypes.func.isRequired
+  },
   setRef: function(ref){
     this.note = ref;
   },
   handleSubmit: function(){
-    
+
   },
   render: function (){
     return (

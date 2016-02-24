@@ -1,5 +1,10 @@
 var React = require('react');
 
+if (typeof window !== 'undefined') {
+    window.React = React;
+};
+
+
 var Main = React.createClass({
   render: function(){
     return (

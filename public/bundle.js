@@ -24328,29 +24328,33 @@
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
 
+	if (typeof window !== 'undefined') {
+	  window.React = React;
+	};
+
 	var Main = React.createClass({
-	  displayName: "Main",
+	  displayName: 'Main',
 
 	  render: function render() {
 	    return React.createElement(
-	      "div",
-	      { className: "main-container" },
+	      'div',
+	      { className: 'main-container' },
 	      React.createElement(
-	        "nav",
-	        { className: "navbar navbar-default", role: "navigation" },
+	        'nav',
+	        { className: 'navbar navbar-default', role: 'navigation' },
 	        React.createElement(
-	          "div",
-	          { className: "col-sm-7 col-sm-offset-2", stle: { marginTop: 15 } },
-	          "MENU"
+	          'div',
+	          { className: 'col-sm-7 col-sm-offset-2', stle: { marginTop: 15 } },
+	          'MENU'
 	        )
 	      ),
 	      React.createElement(
-	        "div",
-	        { className: "container" },
+	        'div',
+	        { className: 'container' },
 	        this.props.children
 	      )
 	    );
@@ -24460,10 +24464,10 @@
 	var Repos = React.createClass({
 	  displayName: 'Repos',
 
-	  // propTypes: {
-	  //   username: React.PropTypes.string.isRequired,
-	  //   repos: React.PropTypes.array.isRequired
-	  // },
+	  propTypes: {
+	    username: React.PropTypes.string.isRequired,
+	    repos: React.PropTypes.array.isRequired
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -24495,10 +24499,10 @@
 	var UserProfile = React.createClass({
 	  displayName: 'UserProfile',
 
-	  // propTypes: {
-	  //   username: React.PropTypes.string.isRequired,
-	  //   bio: React.PropTypes.object.isRequired
-	  // },
+	  propTypes: {
+	    username: React.PropTypes.string.isRequired,
+	    bio: React.PropTypes.object.isRequired
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -24538,12 +24542,13 @@
 	var Notes = React.createClass({
 	  displayName: 'Notes',
 
-	  // propTypes: {
-	  //   username: React.PropTypes.string.isRequired,
-	  //   notes: React.PropTypes.array.isRequired,
-	  //   addNote: React.PropTypes.func.isRequired,
-	  // },
+	  propTypes: {
+	    username: React.PropTypes.string.isRequired,
+	    notes: React.PropTypes.array.isRequired,
+	    addNote: React.PropTypes.func.isRequired
+	  },
 	  render: function render() {
+	    console.log('Notes:', this.props.notes);
 	    return React.createElement(
 	      'div',
 	      null,
@@ -24552,11 +24557,11 @@
 	        null,
 	        'Notes for ',
 	        this.props.username
-	      )
+	      ),
+	      React.createElement(NotesList, { notes: this.props.notes })
 	    );
 	  }
 	});
-	// <NotesList notes={this.props.notes} />
 
 	module.exports = Notes;
 
@@ -24575,7 +24580,7 @@
 	    var notes = this.props.notes.map(function (note, index) {
 	      return React.createElement(
 	        'li',
-	        { classname: 'list-group-item', key: index },
+	        { className: 'list-group-item', key: index },
 	        note['.value']
 	      );
 	    });
@@ -24586,6 +24591,8 @@
 	    );
 	  }
 	});
+
+	module.exports = NotesList;
 
 /***/ },
 /* 216 */
